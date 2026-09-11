@@ -1,5 +1,7 @@
 # Perno
 
+🔗 **[Vedi il sito di Perno](https://fuffafederico.github.io/perno-releases/)**
+
 Perno non è un'app con delle funzionalità fisse. È un hub personale modulare — una casa digitale i cui ambienti, le **stanze**, si installano e disinstallano a piacere. Non "usi un'app con dei moduli": personalizzi il tuo sistema operativo personale, costruendolo attorno a come vivi davvero le tue giornate, non attorno a quello che qualcun altro ha deciso che ti serve.
 
 Le stanze di oggi — Finanze, Chronos, Note, Obiettivi, Statistiche, Scadenze — sono il punto di partenza, non il prodotto. Sono il primo pacchetto disponibile in un sistema pensato per crescere.
