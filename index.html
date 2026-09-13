@@ -4,773 +4,773 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Perno</title>
-  <link rel="icon" type="image/png" href="logo.png">
-  <link rel="apple-touch-icon" href="logo.png">
+<link rel="icon" type="image/png" href="logo.png">
+<link rel="apple-touch-icon" href="logo.png">
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
 
-  :root{
-    --paper:#f3efe6;
-    --paper-dim:#e8e2d3;
-    --ink:#1c1a16;
-    --ink-soft:#4a463d;
-    --brass:#a5672a;
-    --brass-bright:#c98a3e;
-    --line:#1c1a1633;
-    --line-soft:#1c1a1618;
-    --ok:#3f6b4a;
-  }
-  @media (prefers-color-scheme: dark){
-    :root:not([data-theme="light"]){
-      --paper:#171613;
-      --paper-dim:#1e1c18;
-      --ink:#efe9db;
-      --ink-soft:#b6ac97;
-      --brass:#dba15a;
-      --brass-bright:#f0b96f;
-      --line:#efe9db2b;
-      --line-soft:#efe9db15;
-      --ok:#7cae87;
-    }
-  }
-  :root[data-theme="dark"]{
-    --paper:#171613;
-    --paper-dim:#1e1c18;
-    --ink:#efe9db;
-    --ink-soft:#b6ac97;
-    --brass:#dba15a;
-    --brass-bright:#f0b96f;
-    --line:#efe9db2b;
-    --line-soft:#efe9db15;
-    --ok:#7cae87;
-  }
+:root{
+--paper:#f3efe6;
+--paper-dim:#e8e2d3;
+--ink:#1c1a16;
+--ink-soft:#4a463d;
+--brass:#a5672a;
+--brass-bright:#c98a3e;
+--line:#1c1a1633;
+--line-soft:#1c1a1618;
+--ok:#3f6b4a;
+}
+@media (prefers-color-scheme: dark){
+:root:not([data-theme="light"]){
+--paper:#171613;
+--paper-dim:#1e1c18;
+--ink:#efe9db;
+--ink-soft:#b6ac97;
+--brass:#dba15a;
+--brass-bright:#f0b96f;
+--line:#efe9db2b;
+--line-soft:#efe9db15;
+--ok:#7cae87;
+}
+}
+:root[data-theme="dark"]{
+--paper:#171613;
+--paper-dim:#1e1c18;
+--ink:#efe9db;
+--ink-soft:#b6ac97;
+--brass:#dba15a;
+--brass-bright:#f0b96f;
+--line:#efe9db2b;
+--line-soft:#efe9db15;
+--ok:#7cae87;
+}
 
-  *{box-sizing:border-box;}
-  body{
-    background:var(--paper);
-    color:var(--ink);
-    font-family:'IBM Plex Sans', system-ui, sans-serif;
-    padding:0 20px;
-    -webkit-font-smoothing:antialiased;
-  }
-  .wrap{max-width:920px;margin:0 auto;}
+*{box-sizing:border-box;}
+body{
+background:var(--paper);
+color:var(--ink);
+font-family:'IBM Plex Sans', system-ui, sans-serif;
+padding:0 20px;
+-webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:920px;margin:0 auto;}
 
-  h1,h2,h3{
-    font-family:'Fraunces', Georgia, serif;
-    text-wrap:balance;
-    font-weight:600;
-    margin:0;
-  }
-  .mono{
-    font-family:'IBM Plex Mono', ui-monospace, monospace;
-  }
-  .eyebrow{
-    font-family:'IBM Plex Mono', monospace;
-    font-size:.72rem;
-    letter-spacing:.14em;
-    text-transform:uppercase;
-    color:var(--brass);
-  }
-  p{color:var(--ink-soft); line-height:1.65; max-width:62ch;}
-  a{color:var(--brass); text-decoration-color:var(--line);}
-  a:focus-visible, button:focus-visible{outline:2px solid var(--brass); outline-offset:3px;}
+h1,h2,h3{
+font-family:'Fraunces', Georgia, serif;
+text-wrap:balance;
+font-weight:600;
+margin:0;
+}
+.mono{
+font-family:'IBM Plex Mono', ui-monospace, monospace;
+}
+.eyebrow{
+font-family:'IBM Plex Mono', monospace;
+font-size:.72rem;
+letter-spacing:.14em;
+text-transform:uppercase;
+color:var(--brass);
+}
+p{color:var(--ink-soft); line-height:1.65; max-width:62ch;}
+a{color:var(--brass); text-decoration-color:var(--line);}
+a:focus-visible, button:focus-visible{outline:2px solid var(--brass); outline-offset:3px;}
 
-  /* ---------- HERO ---------- */
-  .hero{
-    padding-block:72px 56px;
-    display:flex;
-    gap:48px;
-    align-items:center;
-    flex-wrap:wrap;
-  }
-  .hero-copy{flex:1 1 380px;}
-  .hero-copy h1{font-size:clamp(2.4rem,5.5vw,3.6rem); line-height:1.04; margin-top:14px;}
-  .hero-copy p.lede{font-size:1.08rem; margin-top:18px;}
-  .hero-figure{
-    flex:0 0 220px;
-    display:flex;
-    justify-content:center;
-  }
-  .logo-mark{
-    width:150px;
-    height:150px;
-    border-radius:50%;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    background:radial-gradient(circle at 50% 38%, #262319, #17150f 72%);
-    box-shadow:0 18px 40px -14px color-mix(in srgb, var(--ink) 45%, transparent), inset 0 0 0 1px #ffffff10;
-    animation:hover-float 6s ease-in-out infinite;
-  }
-  .logo-mark img{
-    width:82px;
-    height:82px;
-    object-fit:contain;
-  }
-  @keyframes hover-float{
-    0%,100%{transform:translateY(0);}
-    50%{transform:translateY(-8px);}
-  }
-  @media (prefers-reduced-motion:reduce){ .logo-mark{animation:none;} }
+/* ---------- HERO ---------- */
+.hero{
+padding-block:72px 56px;
+display:flex;
+gap:48px;
+align-items:center;
+flex-wrap:wrap;
+}
+.hero-copy{flex:1 1 380px;}
+.hero-copy h1{font-size:clamp(2.4rem,5.5vw,3.6rem); line-height:1.04; margin-top:14px;}
+.hero-copy p.lede{font-size:1.08rem; margin-top:18px;}
+.hero-figure{
+flex:0 0 220px;
+display:flex;
+justify-content:center;
+}
+.logo-mark{
+width:150px;
+height:150px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+background:radial-gradient(circle at 50% 38%, #262319, #17150f 72%);
+box-shadow:0 18px 40px -14px color-mix(in srgb, var(--ink) 45%, transparent), inset 0 0 0 1px #ffffff10;
+animation:hover-float 6s ease-in-out infinite;
+}
+.logo-mark img{
+width:82px;
+height:82px;
+object-fit:contain;
+}
+@keyframes hover-float{
+0%,100%{transform:translateY(0);}
+50%{transform:translateY(-8px);}
+}
+@media (prefers-reduced-motion:reduce){ .logo-mark{animation:none;} }
 
-  .cta-row{display:flex; gap:14px; flex-wrap:wrap; margin-top:30px;}
-  .btn{
-    font-family:'IBM Plex Mono', monospace;
-    font-size:.85rem;
-    letter-spacing:.02em;
-    padding:12px 20px;
-    border-radius:3px;
-    border:1px solid var(--ink);
-    background:var(--ink);
-    color:var(--paper);
-    cursor:pointer;
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-    transition:transform .15s ease, background .15s ease;
-  }
-  .btn:hover{transform:translateY(-1px); background:var(--brass); border-color:var(--brass); color:var(--ink);}
-  .btn.ghost{
-    background:transparent;
-    color:var(--ink);
-    border:1px solid var(--line);
-  }
-  .btn.ghost:hover{background:var(--line-soft); color:var(--ink); border-color:var(--ink);}
+.cta-row{display:flex; gap:14px; flex-wrap:wrap; margin-top:30px;}
+.btn{
+font-family:'IBM Plex Mono', monospace;
+font-size:.85rem;
+letter-spacing:.02em;
+padding:12px 20px;
+border-radius:3px;
+border:1px solid var(--ink);
+background:var(--ink);
+color:var(--paper);
+cursor:pointer;
+display:inline-flex;
+align-items:center;
+gap:8px;
+transition:transform .15s ease, background .15s ease;
+}
+.btn:hover{transform:translateY(-1px); background:var(--brass); border-color:var(--brass); color:var(--ink);}
+.btn.ghost{
+background:transparent;
+color:var(--ink);
+border:1px solid var(--line);
+}
+.btn.ghost:hover{background:var(--line-soft); color:var(--ink); border-color:var(--ink);}
 
-  /* pin/hinge mark */
-  .pin-mark{width:180px; height:180px;}
-  .pin-arm{transform-origin:90px 90px; animation:swing 5s ease-in-out infinite;}
-  @keyframes swing{
-    0%,100%{transform:rotate(-7deg);}
-    50%{transform:rotate(7deg);}
-  }
-  @media (prefers-reduced-motion:reduce){ .pin-arm{animation:none;} }
+/* pin/hinge mark */
+.pin-mark{width:180px; height:180px;}
+.pin-arm{transform-origin:90px 90px; animation:swing 5s ease-in-out infinite;}
+@keyframes swing{
+0%,100%{transform:rotate(-7deg);}
+50%{transform:rotate(7deg);}
+}
+@media (prefers-reduced-motion:reduce){ .pin-arm{animation:none;} }
 
-  /* ---------- SECTIONS ---------- */
-  section{padding-block:44px;}
-  .rule{border:none; border-top:1px solid var(--line); margin:0;}
+/* ---------- SECTIONS ---------- */
+section{padding-block:44px;}
+.rule{border:none; border-top:1px solid var(--line); margin:0;}
 
-  .section-head{display:flex; align-items:baseline; gap:14px; margin-bottom:28px;}
-  .section-head h2{font-size:1.6rem;}
+.section-head{display:flex; align-items:baseline; gap:14px; margin-bottom:28px;}
+.section-head h2{font-size:1.6rem;}
 
-  /* how it works — hinge diagram steps */
-  .steps{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:1px;
-    background:var(--line);
-    border:1px solid var(--line);
-    border-radius:4px;
-    overflow:hidden;
-  }
-  .step{
-    background:var(--paper);
-    padding:26px 22px;
-    display:flex;
-    flex-direction:column;
-    gap:12px;
-    min-width:0;
-  }
-  .step .num{font-family:'IBM Plex Mono',monospace; font-size:.78rem; color:var(--brass);}
-  .step h3{font-size:1.05rem; font-weight:600;}
-  .step p{font-size:.92rem; margin:0;}
-  @media (max-width:640px){ .steps{grid-template-columns:1fr;} }
+/* how it works — hinge diagram steps */
+.steps{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:1px;
+background:var(--line);
+border:1px solid var(--line);
+border-radius:4px;
+overflow:hidden;
+}
+.step{
+background:var(--paper);
+padding:26px 22px;
+display:flex;
+flex-direction:column;
+gap:12px;
+min-width:0;
+}
+.step .num{font-family:'IBM Plex Mono',monospace; font-size:.78rem; color:var(--brass);}
+.step h3{font-size:1.05rem; font-weight:600;}
+.step p{font-size:.92rem; margin:0;}
+@media (max-width:640px){ .steps{grid-template-columns:1fr;} }
 
-  /* status card */
-  .status-card{
-    border:1px solid var(--line);
-    border-radius:4px;
-    padding:22px 24px;
-    display:flex;
-    align-items:center;
-    gap:16px;
-    background:var(--paper-dim);
-    max-width:520px;
-  }
-  .dot{width:9px; height:9px; border-radius:50%; background:var(--ok); flex:none; box-shadow:0 0 0 3px color-mix(in srgb, var(--ok) 22%, transparent);}
-  .status-card .label{font-family:'IBM Plex Mono',monospace; font-size:.82rem; color:var(--ink-soft);}
-  .status-card .value{font-family:'IBM Plex Mono',monospace; font-size:.94rem; font-weight:500;}
+/* status card */
+.status-card{
+border:1px solid var(--line);
+border-radius:4px;
+padding:22px 24px;
+display:flex;
+align-items:center;
+gap:16px;
+background:var(--paper-dim);
+max-width:520px;
+}
+.dot{width:9px; height:9px; border-radius:50%; background:var(--ok); flex:none; box-shadow:0 0 0 3px color-mix(in srgb, var(--ok) 22%, transparent);}
+.status-card .label{font-family:'IBM Plex Mono',monospace; font-size:.82rem; color:var(--ink-soft);}
+.status-card .value{font-family:'IBM Plex Mono',monospace; font-size:.94rem; font-weight:500;}
 
-  /* download */
-  .download-grid{
-    display:flex;
-    gap:14px;
-    flex-wrap:wrap;
-  }
-  .platform{
-    border:1px solid var(--line);
-    border-radius:4px;
-    padding:18px 20px;
-    flex:1 1 200px;
-    display:flex;
-    flex-direction:column;
-    gap:6px;
-    transition:border-color .15s ease, background .15s ease;
-  }
-  .platform:hover{border-color:var(--brass); background:var(--line-soft);}
-  .platform .os{font-weight:600; font-size:1rem;}
-  .platform .note{font-family:'IBM Plex Mono',monospace; font-size:.78rem; color:var(--ink-soft);}
+/* download */
+.download-grid{
+display:flex;
+gap:14px;
+flex-wrap:wrap;
+}
+.platform{
+border:1px solid var(--line);
+border-radius:4px;
+padding:18px 20px;
+flex:1 1 200px;
+display:flex;
+flex-direction:column;
+gap:6px;
+transition:border-color .15s ease, background .15s ease;
+}
+.platform:hover{border-color:var(--brass); background:var(--line-soft);}
+.platform .os{font-weight:600; font-size:1rem;}
+.platform .note{font-family:'IBM Plex Mono',monospace; font-size:.78rem; color:var(--ink-soft);}
 
-  /* screenshot frame / slider */
-  .frame{
-    border-radius:10px;
-    border:1px solid var(--line);
-    background:#100f0d;
-    box-shadow:0 24px 48px -20px color-mix(in srgb, var(--ink) 55%, transparent);
-    overflow:hidden;
-  }
-  .frame-bar{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:6px;
-    padding:10px 14px;
-    background:#17150f;
-    border-bottom:1px solid #ffffff12;
-  }
-  .frame-bar .dots-os{display:flex; gap:6px;}
-  .frame-bar .dots-os span{width:9px; height:9px; border-radius:50%; background:#ffffff20;}
-  .frame-bar .caption{
-    font-family:'IBM Plex Mono',monospace;
-    font-size:.72rem;
-    color:#ffffff55;
-    letter-spacing:.04em;
-  }
-  .frame img{display:block; width:100%; height:auto;}
+/* screenshot frame / slider */
+.frame{
+border-radius:10px;
+border:1px solid var(--line);
+background:#100f0d;
+box-shadow:0 24px 48px -20px color-mix(in srgb, var(--ink) 55%, transparent);
+overflow:hidden;
+}
+.frame-bar{
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:6px;
+padding:10px 14px;
+background:#17150f;
+border-bottom:1px solid #ffffff12;
+}
+.frame-bar .dots-os{display:flex; gap:6px;}
+.frame-bar .dots-os span{width:9px; height:9px; border-radius:50%; background:#ffffff20;}
+.frame-bar .caption{
+font-family:'IBM Plex Mono',monospace;
+font-size:.72rem;
+color:#ffffff55;
+letter-spacing:.04em;
+}
+.frame img{display:block; width:100%; height:auto;}
 
-  .slider{position:relative;}
-  .slider-track{
-    display:flex;
-    overflow-x:auto;
-    scroll-snap-type:x mandatory;
-    scrollbar-width:none;
-  }
-  .slider-track::-webkit-scrollbar{display:none;}
-  .slide{flex:0 0 100%; scroll-snap-align:start;}
+.slider{position:relative;}
+.slider-track{
+display:flex;
+overflow-x:auto;
+scroll-snap-type:x mandatory;
+scrollbar-width:none;
+}
+.slider-track::-webkit-scrollbar{display:none;}
+.slide{flex:0 0 100%; scroll-snap-align:start;}
 
-  .slider-controls{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:16px;
-    margin-top:16px;
-  }
-  .slider-arrow{
-    width:34px; height:34px;
-    border-radius:50%;
-    border:1px solid var(--line);
-    background:transparent;
-    color:var(--ink);
-    font-family:'IBM Plex Mono',monospace;
-    font-size:.9rem;
-    cursor:pointer;
-    display:flex; align-items:center; justify-content:center;
-    transition:border-color .15s ease, background .15s ease;
-  }
-  .slider-arrow:hover{border-color:var(--brass); background:var(--line-soft);}
-  .slider-dots{display:flex; gap:8px;}
-  .slider-dots button{
-    width:7px; height:7px;
-    border-radius:50%;
-    border:none;
-    padding:0;
-    background:var(--line);
-    cursor:pointer;
-    transition:background .15s ease, transform .15s ease;
-  }
-  .slider-dots button[aria-current="true"]{background:var(--brass); transform:scale(1.3);}
+.slider-controls{
+display:flex;
+align-items:center;
+justify-content:center;
+gap:16px;
+margin-top:16px;
+}
+.slider-arrow{
+width:34px; height:34px;
+border-radius:50%;
+border:1px solid var(--line);
+background:transparent;
+color:var(--ink);
+font-family:'IBM Plex Mono',monospace;
+font-size:.9rem;
+cursor:pointer;
+display:flex; align-items:center; justify-content:center;
+transition:border-color .15s ease, background .15s ease;
+}
+.slider-arrow:hover{border-color:var(--brass); background:var(--line-soft);}
+.slider-dots{display:flex; gap:8px;}
+.slider-dots button{
+width:7px; height:7px;
+border-radius:50%;
+border:none;
+padding:0;
+background:var(--line);
+cursor:pointer;
+transition:background .15s ease, transform .15s ease;
+}
+.slider-dots button[aria-current="true"]{background:var(--brass); transform:scale(1.3);}
 
-  /* language chips */
-  .lang-row{display:flex; gap:10px; flex-wrap:wrap;}
-  .lang-chip{
-    display:flex;
-    align-items:center;
-    gap:8px;
-    border:1px solid var(--line);
-    border-radius:100px;
-    padding:8px 16px 8px 8px;
-    background:transparent;
-    font-family:inherit;
-    color:var(--ink);
-    cursor:pointer;
-    transition:border-color .15s ease, background .15s ease;
-  }
-  .lang-chip:hover{border-color:var(--brass); background:var(--line-soft);}
-  .lang-chip[aria-pressed="true"]{border-color:var(--brass); background:var(--line-soft);}
-  .lang-chip .code{
-    font-family:'IBM Plex Mono',monospace;
-    font-size:.72rem;
-    font-weight:500;
-    background:var(--paper-dim);
-    color:var(--brass);
-    border-radius:100px;
-    padding:3px 8px;
-    letter-spacing:.03em;
-  }
-  .lang-chip[aria-pressed="true"] .code{background:var(--brass); color:var(--paper);}
-  .lang-chip .name{font-size:.88rem;}
-  .lang-hint{font-size:.78rem; color:var(--ink-soft); margin-top:12px; font-family:'IBM Plex Mono',monospace;}
+/* language chips */
+.lang-row{display:flex; gap:10px; flex-wrap:wrap;}
+.lang-chip{
+display:flex;
+align-items:center;
+gap:8px;
+border:1px solid var(--line);
+border-radius:100px;
+padding:8px 16px 8px 8px;
+background:transparent;
+font-family:inherit;
+color:var(--ink);
+cursor:pointer;
+transition:border-color .15s ease, background .15s ease;
+}
+.lang-chip:hover{border-color:var(--brass); background:var(--line-soft);}
+.lang-chip[aria-pressed="true"]{border-color:var(--brass); background:var(--line-soft);}
+.lang-chip .code{
+font-family:'IBM Plex Mono',monospace;
+font-size:.72rem;
+font-weight:500;
+background:var(--paper-dim);
+color:var(--brass);
+border-radius:100px;
+padding:3px 8px;
+letter-spacing:.03em;
+}
+.lang-chip[aria-pressed="true"] .code{background:var(--brass); color:var(--paper);}
+.lang-chip .name{font-size:.88rem;}
+.lang-hint{font-size:.78rem; color:var(--ink-soft); margin-top:12px; font-family:'IBM Plex Mono',monospace;}
 
-  .rooms{
-    display:flex;
-    gap:14px;
-    flex-wrap:wrap;
-    margin-top:22px;
-  }
-  .room{
-    flex:1 1 160px;
-    border:1px solid var(--line);
-    border-radius:4px;
-    padding:16px 18px;
-  }
-  .room .name{font-weight:600; font-size:.95rem;}
-  .room .desc{font-family:'IBM Plex Mono',monospace; font-size:.76rem; color:var(--ink-soft); margin-top:4px; display:block;}
+.rooms{
+display:flex;
+gap:14px;
+flex-wrap:wrap;
+margin-top:22px;
+}
+.room{
+flex:1 1 160px;
+border:1px solid var(--line);
+border-radius:4px;
+padding:16px 18px;
+}
+.room .name{font-weight:600; font-size:.95rem;}
+.room .desc{font-family:'IBM Plex Mono',monospace; font-size:.76rem; color:var(--ink-soft); margin-top:4px; display:block;}
 
-  footer{
-    padding-block:36px 60px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:16px;
-    flex-wrap:wrap;
-  }
-  footer p{font-size:.82rem; margin:0;}
-  footer .mono{font-size:.78rem; color:var(--ink-soft);}
+footer{
+padding-block:36px 60px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:16px;
+flex-wrap:wrap;
+}
+footer p{font-size:.82rem; margin:0;}
+footer .mono{font-size:.78rem; color:var(--ink-soft);}
 </style>
 </head>
 <body>
 <div class="wrap">
 
-  <div class="hero">
-    <div class="hero-copy">
-      <p class="eyebrow" data-i18n="eyebrowHero">software · hub personale modulare</p>
-      <h1>Perno</h1>
-      <p class="lede" data-i18n="lede">Perno non è un'app con funzionalità fisse: è una casa digitale le cui stanze si installano e disinstallano a piacere. Finanze, Chronos e Note sono solo il punto di partenza di un sistema pensato per crescere con te.</p>
-      <div class="cta-row">
-        <a class="btn" href="https://github.com/fuffafederico/perno-releases" target="_blank" rel="noopener" data-i18n="ctaDownload">↓ Scarica l'ultima release</a>
-        <a class="btn ghost" href="https://github.com/fuffafederico/perno-releases" target="_blank" rel="noopener" data-i18n="ctaRepo">Vedi il repository</a>
-      </div>
-    </div>
-    <div class="hero-figure">
-      <div class="logo-mark">
-        <img src="logo.png" alt="Logo di Perno" />
-      </div>
-    </div>
-  </div>
+<div class="hero">
+<div class="hero-copy">
+<p class="eyebrow" data-i18n="eyebrowHero">software · hub personale modulare</p>
+<h1>Perno</h1>
+<p class="lede" data-i18n="lede">Perno non è un'app con funzionalità fisse: è una casa digitale le cui stanze si installano e disinstallano a piacere. Finanze, Chronos e Note sono solo il punto di partenza di un sistema pensato per crescere con te.</p>
+<div class="cta-row">
+<a class="btn" href="https://github.com/fuffafederico/perno-releases/releases/latest" target="_blank" rel="noopener" data-i18n="ctaDownload">↓ Scarica l'ultima release</a>
+<a class="btn ghost" href="https://github.com/fuffafederico/perno-releases" target="_blank" rel="noopener" data-i18n="ctaRepo">Vedi il repository</a>
+</div>
+</div>
+<div class="hero-figure">
+<div class="logo-mark">
+<img src="logo.png" alt="Logo di Perno" />
+</div>
+</div>
+</div>
 
-  <hr class="rule"/>
+<hr class="rule"/>
 
-  <section>
-    <div class="section-head">
-      <span class="eyebrow" data-i18n="eyebrowHow">come funziona</span>
-    </div>
-    <div class="steps">
-      <div class="step">
-        <span class="num">01</span>
-        <h3 data-i18n="step1Title">Installa</h3>
-        <p data-i18n="step1Desc">Perno parte minimale: installi solo le stanze che ti servono davvero, quando ti servono.</p>
-      </div>
-      <div class="step">
-        <span class="num">02</span>
-        <h3 data-i18n="step2Title">Personalizza</h3>
-        <p data-i18n="step2Desc">Temi completi, colore d'accento e icone per ogni categoria: non lo usi soltanto, lo plasmi.</p>
-      </div>
-      <div class="step">
-        <span class="num">03</span>
-        <h3 data-i18n="step3Title">Cresci</h3>
-        <p data-i18n="step3Desc">Nuove stanze in arrivo, e in futuro anche create da altri utenti: il sistema è pensato per espandersi, non per restare fisso.</p>
-      </div>
-    </div>
-  </section>
+<section>
+<div class="section-head">
+<span class="eyebrow" data-i18n="eyebrowHow">come funziona</span>
+</div>
+<div class="steps">
+<div class="step">
+<span class="num">01</span>
+<h3 data-i18n="step1Title">Installa</h3>
+<p data-i18n="step1Desc">Perno parte minimale: installi solo le stanze che ti servono davvero, quando ti servono.</p>
+</div>
+<div class="step">
+<span class="num">02</span>
+<h3 data-i18n="step2Title">Personalizza</h3>
+<p data-i18n="step2Desc">Temi completi, colore d'accento e icone per ogni categoria: non lo usi soltanto, lo plasmi.</p>
+</div>
+<div class="step">
+<span class="num">03</span>
+<h3 data-i18n="step3Title">Cresci</h3>
+<p data-i18n="step3Desc">Nuove stanze in arrivo, e in futuro anche create da altri utenti: il sistema è pensato per espandersi, non per restare fisso.</p>
+</div>
+</div>
+</section>
 
-  <hr class="rule"/>
+<hr class="rule"/>
 
-  <section>
-    <div class="section-head">
-      <span class="eyebrow" data-i18n="eyebrowLang">lingue</span>
-    </div>
-    <p style="margin-top:-10px;" data-i18n="langDesc">L'interfaccia è disponibile in cinque lingue, selezionabili in qualsiasi momento dalle impostazioni.</p>
-    <div class="lang-row" id="lang-switcher" role="group" aria-label="Lingua della pagina">
-      <button type="button" class="lang-chip" data-lang="it" aria-pressed="true"><span class="code">IT</span><span class="name">Italiano</span></button>
-      <button type="button" class="lang-chip" data-lang="en" aria-pressed="false"><span class="code">EN</span><span class="name">English</span></button>
-      <button type="button" class="lang-chip" data-lang="es" aria-pressed="false"><span class="code">ES</span><span class="name">Español</span></button>
-      <button type="button" class="lang-chip" data-lang="fr" aria-pressed="false"><span class="code">FR</span><span class="name">Français</span></button>
-      <button type="button" class="lang-chip" data-lang="de" aria-pressed="false"><span class="code">DE</span><span class="name">Deutsch</span></button>
-    </div>
-    <p class="lang-hint" data-i18n="langHint">↳ anche questa pagina si traduce: scegli una lingua qui sopra.</p>
-  </section>
+<section>
+<div class="section-head">
+<span class="eyebrow" data-i18n="eyebrowLang">lingue</span>
+</div>
+<p style="margin-top:-10px;" data-i18n="langDesc">L'interfaccia è disponibile in cinque lingue, selezionabili in qualsiasi momento dalle impostazioni.</p>
+<div class="lang-row" id="lang-switcher" role="group" aria-label="Lingua della pagina">
+<button type="button" class="lang-chip" data-lang="it" aria-pressed="true"><span class="code">IT</span><span class="name">Italiano</span></button>
+<button type="button" class="lang-chip" data-lang="en" aria-pressed="false"><span class="code">EN</span><span class="name">English</span></button>
+<button type="button" class="lang-chip" data-lang="es" aria-pressed="false"><span class="code">ES</span><span class="name">Español</span></button>
+<button type="button" class="lang-chip" data-lang="fr" aria-pressed="false"><span class="code">FR</span><span class="name">Français</span></button>
+<button type="button" class="lang-chip" data-lang="de" aria-pressed="false"><span class="code">DE</span><span class="name">Deutsch</span></button>
+</div>
+<p class="lang-hint" data-i18n="langHint">↳ anche questa pagina si traduce: scegli una lingua qui sopra.</p>
+</section>
 
-  <hr class="rule"/>
+<hr class="rule"/>
 
-  <section>
-    <div class="section-head">
-      <span class="eyebrow" data-i18n="eyebrowStatus">stato del progetto</span>
-    </div>
-    <div class="status-card">
-      <span class="dot"></span>
-      <span class="label" data-i18n="statusLabel">repository</span>
-      <span class="value">perno-releases</span>
-    </div>
-    <p style="margin-top:16px; font-size:.9rem;" data-i18n="statusDesc">Perno è in sviluppo attivo: le stanze di oggi sono la base, non il limite. Questo repository distribuisce l'installer e le release, ed è anche il canale che il meccanismo di aggiornamento automatico usa per i client già installati.</p>
-  </section>
+<section>
+<div class="section-head">
+<span class="eyebrow" data-i18n="eyebrowStatus">stato del progetto</span>
+</div>
+<div class="status-card">
+<span class="dot"></span>
+<span class="label" data-i18n="statusLabel">repository</span>
+<span class="value">perno-releases</span>
+</div>
+<p style="margin-top:16px; font-size:.9rem;" data-i18n="statusDesc">Perno è in sviluppo attivo: le stanze di oggi sono la base, non il limite. Questo repository distribuisce l'installer e le release, ed è anche il canale che il meccanismo di aggiornamento automatico usa per i client già installati.</p>
+</section>
 
-  <hr class="rule"/>
+<hr class="rule"/>
 
-  <section>
-    <div class="section-head">
-      <span class="eyebrow" data-i18n="eyebrowPreview">anteprima</span>
-    </div>
-    <p style="margin-top:-10px;" data-i18n="previewDesc">Ogni stanza — Chronos, Finanze, Note e le altre in arrivo — si attiva o disattiva a piacere, con la sua vista dedicata.</p>
+<section>
+<div class="section-head">
+<span class="eyebrow" data-i18n="eyebrowPreview">anteprima</span>
+</div>
+<p style="margin-top:-10px;" data-i18n="previewDesc">Ogni stanza — Chronos, Finanze, Note e le altre in arrivo — si attiva o disattiva a piacere, con la sua vista dedicata.</p>
 
-    <div class="frame">
-      <div class="frame-bar">
-        <div class="dots-os"><span></span><span></span><span></span></div>
-        <span class="caption" id="slide-caption">Dashboard</span>
-      </div>
-      <div class="slider">
-        <div class="slider-track" id="slider-track">
-          <div class="slide"><img src="dashboard.png" alt="Dashboard di Perno con le stanze Finanze, Chronos e Note" /></div>
-          <div class="slide"><img src="shot-chronos.png" alt="Stanza Chronos: attività, calendario e routine" /></div>
-          <div class="slide"><img src="shot-finanze.png" alt="Stanza Finanze: panoramica di entrate, uscite e saldo" /></div>
-          <div class="slide"><img src="shot-note.png" alt="Stanza Note con appunti rapidi" /></div>
-          <div class="slide"><img src="shot-stanze.png" alt="Pannello Stanze per attivare o installare i moduli" /></div>
-          <div class="slide"><img src="shot-impostazioni1.png" alt="Impostazioni: tema, colore d'accento e lingua" /></div>
-          <div class="slide"><img src="shot-impostazioni2.png" alt="Impostazioni: categorie di attività e categorie finanziarie" /></div>
-        </div>
-      </div>
-    </div>
-    <div class="slider-controls">
-      <button class="slider-arrow" id="slider-prev" aria-label="Immagine precedente" data-i18n-aria="slidePrevAria">←</button>
-      <div class="slider-dots" id="slider-dots"></div>
-      <button class="slider-arrow" id="slider-next" aria-label="Immagine successiva" data-i18n-aria="slideNextAria">→</button>
-    </div>
+<div class="frame">
+<div class="frame-bar">
+<div class="dots-os"><span></span><span></span><span></span></div>
+<span class="caption" id="slide-caption">Dashboard</span>
+</div>
+<div class="slider">
+<div class="slider-track" id="slider-track">
+<div class="slide"><img src="dashboard.png" alt="Dashboard di Perno con le stanze Finanze, Chronos e Note" /></div>
+<div class="slide"><img src="shot-chronos.png" alt="Stanza Chronos: attività, calendario e routine" /></div>
+<div class="slide"><img src="shot-finanze.png" alt="Stanza Finanze: panoramica di entrate, uscite e saldo" /></div>
+<div class="slide"><img src="shot-note.png" alt="Stanza Note con appunti rapidi" /></div>
+<div class="slide"><img src="shot-stanze.png" alt="Pannello Stanze per attivare o installare i moduli" /></div>
+<div class="slide"><img src="shot-impostazioni1.png" alt="Impostazioni: tema, colore d'accento e lingua" /></div>
+<div class="slide"><img src="shot-impostazioni2.png" alt="Impostazioni: categorie di attività e categorie finanziarie" /></div>
+</div>
+</div>
+</div>
+<div class="slider-controls">
+<button class="slider-arrow" id="slider-prev" aria-label="Immagine precedente" data-i18n-aria="slidePrevAria">←</button>
+<div class="slider-dots" id="slider-dots"></div>
+<button class="slider-arrow" id="slider-next" aria-label="Immagine successiva" data-i18n-aria="slideNextAria">→</button>
+</div>
 
-    <div class="rooms">
-      <div class="room">
-        <span class="name">Finanze</span>
-        <span class="desc" data-i18n="roomFinanzeDesc">saldo, entrate/uscite, pagamenti in arrivo</span>
-      </div>
-      <div class="room">
-        <span class="name">Chronos</span>
-        <span class="desc" data-i18n="roomChronosDesc">agenda e attività del giorno</span>
-      </div>
-      <div class="room">
-        <span class="name">Note</span>
-        <span class="desc" data-i18n="roomNoteDesc">appunti fissati in evidenza</span>
-      </div>
-    </div>
-  </section>
+<div class="rooms">
+<div class="room">
+<span class="name">Finanze</span>
+<span class="desc" data-i18n="roomFinanzeDesc">saldo, entrate/uscite, pagamenti in arrivo</span>
+</div>
+<div class="room">
+<span class="name">Chronos</span>
+<span class="desc" data-i18n="roomChronosDesc">agenda e attività del giorno</span>
+</div>
+<div class="room">
+<span class="name">Note</span>
+<span class="desc" data-i18n="roomNoteDesc">appunti fissati in evidenza</span>
+</div>
+</div>
+</section>
 
-  <hr class="rule"/>
+<hr class="rule"/>
 
-  <section>
-    <div class="section-head">
-      <span class="eyebrow" data-i18n="eyebrowDownload">scarica</span>
-    </div>
-    <div class="download-grid">
-      <a class="platform" href="https://github.com/fuffafederico/perno-releases/releases" target="_blank" rel="noopener">
-        <span class="os">Windows</span>
-        <span class="note" data-i18n="platformNote">installer · .exe / .msi</span>
-      </a>
-    </div>
-  </section>
+<section>
+<div class="section-head">
+<span class="eyebrow" data-i18n="eyebrowDownload">scarica</span>
+</div>
+<div class="download-grid">
+<a class="platform" href="https://github.com/fuffafederico/perno-releases/releases/latest" target="_blank" rel="noopener">
+<span class="os">Windows</span>
+<span class="note" data-i18n="platformNote">installer · .exe / .msi</span>
+</a>
+</div>
+</section>
 
-  <hr class="rule"/>
+<hr class="rule"/>
 
-  <footer>
-    <p class="mono" data-i18n="footerText">Perno — hub personale modulare, locale-first</p>
-    <a class="mono" href="https://github.com/fuffafederico/perno-releases" target="_blank" rel="noopener">github.com/fuffafederico/perno-releases</a>
-  </footer>
+<footer>
+<p class="mono" data-i18n="footerText">Perno — hub personale modulare, locale-first</p>
+<a class="mono" href="https://github.com/fuffafederico/perno-releases" target="_blank" rel="noopener">github.com/fuffafederico/perno-releases</a>
+</footer>
 
 </div>
 
 <script>
 /* ---------- i18n ---------- */
 var I18N = {
-  it: {
-    eyebrowHero: "software · hub personale modulare",
-    lede: "Perno non è un'app con funzionalità fisse: è una casa digitale le cui stanze si installano e disinstallano a piacere. Finanze, Chronos e Note sono solo il punto di partenza di un sistema pensato per crescere con te.",
-    ctaDownload: "↓ Scarica l'ultima release",
-    ctaRepo: "Vedi il repository",
-    eyebrowHow: "come funziona",
-    step1Title: "Installa",
-    step1Desc: "Perno parte minimale: installi solo le stanze che ti servono davvero, quando ti servono.",
-    step2Title: "Personalizza",
-    step2Desc: "Temi completi, colore d'accento e icone per ogni categoria: non lo usi soltanto, lo plasmi.",
-    step3Title: "Cresci",
-    step3Desc: "Nuove stanze in arrivo, e in futuro anche create da altri utenti: il sistema è pensato per espandersi, non per restare fisso.",
-    eyebrowLang: "lingue",
-    langDesc: "L'interfaccia è disponibile in cinque lingue, selezionabili in qualsiasi momento dalle impostazioni.",
-    langHint: "↳ anche questa pagina si traduce: scegli una lingua qui sopra.",
-    eyebrowStatus: "stato del progetto",
-    statusLabel: "repository",
-    statusDesc: "Perno è in sviluppo attivo: le stanze di oggi sono la base, non il limite. Questo repository distribuisce l'installer e le release, ed è anche il canale che il meccanismo di aggiornamento automatico usa per i client già installati.",
-    eyebrowPreview: "anteprima",
-    previewDesc: "Ogni stanza — Chronos, Finanze, Note e le altre in arrivo — si attiva o disattiva a piacere, con la sua vista dedicata.",
-    slidePrevAria: "Immagine precedente",
-    slideNextAria: "Immagine successiva",
-    roomFinanzeDesc: "saldo, entrate/uscite, pagamenti in arrivo",
-    roomChronosDesc: "agenda e attività del giorno",
-    roomNoteDesc: "appunti fissati in evidenza",
-    eyebrowDownload: "scarica",
-    platformNote: "installer · .exe / .msi",
-    footerText: "Perno — hub personale modulare, locale-first",
-    labels: ['Dashboard','Chronos','Finanze','Note','Stanze','Impostazioni — aspetto','Impostazioni — categorie']
-  },
-  en: {
-    eyebrowHero: "software · modular personal hub",
-    lede: "Perno isn't an app with fixed features: it's a digital home whose rooms you install and remove as you like. Finanze, Chronos and Note are just the starting point of a system built to grow with you.",
-    ctaDownload: "↓ Download the latest release",
-    ctaRepo: "View the repository",
-    eyebrowHow: "how it works",
-    step1Title: "Install",
-    step1Desc: "Perno starts minimal: you install only the rooms you actually need, when you need them.",
-    step2Title: "Personalize",
-    step2Desc: "Full themes, a separate accent color, icons for every category: you don't just use it, you shape it.",
-    step3Title: "Grow",
-    step3Desc: "New rooms are coming, and in time also ones built by other users: the system is meant to expand, not stay fixed.",
-    eyebrowLang: "languages",
-    langDesc: "The interface is available in five languages, selectable at any time from settings.",
-    langHint: "↳ this page translates too: pick a language above.",
-    eyebrowStatus: "project status",
-    statusLabel: "repository",
-    statusDesc: "Perno is under active development: today's rooms are the foundation, not the limit. This repository distributes the installer and releases, and is also the channel the auto-update mechanism uses for clients already installed.",
-    eyebrowPreview: "preview",
-    previewDesc: "Every room — Chronos, Finanze, Note and the ones still to come — can be switched on or off at will, each with its own dedicated view.",
-    slidePrevAria: "Previous image",
-    slideNextAria: "Next image",
-    roomFinanzeDesc: "balance, income/expenses, upcoming payments",
-    roomChronosDesc: "schedule and today's activities",
-    roomNoteDesc: "pinned quick notes",
-    eyebrowDownload: "download",
-    platformNote: "installer · .exe / .msi",
-    footerText: "Perno — modular personal hub, local-first",
-    labels: ['Dashboard','Chronos','Finanze','Note','Rooms','Settings — appearance','Settings — categories']
-  },
-  es: {
-    eyebrowHero: "software · hub personal modular",
-    lede: "Perno no es una app con funciones fijas: es una casa digital cuyas salas instalas y desinstalas a tu gusto. Finanzas, Chronos y Notas son solo el punto de partida de un sistema pensado para crecer contigo.",
-    ctaDownload: "↓ Descargar la última versión",
-    ctaRepo: "Ver el repositorio",
-    eyebrowHow: "cómo funciona",
-    step1Title: "Instala",
-    step1Desc: "Perno empieza minimalista: instalas solo las salas que de verdad necesitas, cuando las necesitas.",
-    step2Title: "Personaliza",
-    step2Desc: "Temas completos, un color de acento aparte, iconos para cada categoría: no solo lo usas, lo moldeas.",
-    step3Title: "Crece",
-    step3Desc: "Llegarán nuevas salas, y con el tiempo también creadas por otros usuarios: el sistema está pensado para expandirse, no para quedarse fijo.",
-    eyebrowLang: "idiomas",
-    langDesc: "La interfaz está disponible en cinco idiomas, seleccionables en cualquier momento desde los ajustes.",
-    langHint: "↳ esta página también se traduce: elige un idioma arriba.",
-    eyebrowStatus: "estado del proyecto",
-    statusLabel: "repositorio",
-    statusDesc: "Perno está en desarrollo activo: las salas de hoy son la base, no el límite. Este repositorio distribuye el instalador y las versiones, y es también el canal que usa el mecanismo de actualización automática para los clientes ya instalados.",
-    eyebrowPreview: "vista previa",
-    previewDesc: "Cada sala — Chronos, Finanze, Note y las que están por llegar — se activa o desactiva a voluntad, con su propia vista dedicada.",
-    slidePrevAria: "Imagen anterior",
-    slideNextAria: "Imagen siguiente",
-    roomFinanzeDesc: "saldo, ingresos/gastos, próximos pagos",
-    roomChronosDesc: "agenda y actividades del día",
-    roomNoteDesc: "notas rápidas fijadas",
-    eyebrowDownload: "descargar",
-    platformNote: "instalador · .exe / .msi",
-    footerText: "Perno — hub personal modular, local-first",
-    labels: ['Dashboard','Chronos','Finanze','Note','Salas','Ajustes — apariencia','Ajustes — categorías']
-  },
-  fr: {
-    eyebrowHero: "logiciel · hub personnel modulaire",
-    lede: "Perno n'est pas une appli aux fonctionnalités figées : c'est une maison numérique dont les pièces s'installent et se désinstallent à volonté. Finanze, Chronos et Note ne sont que le point de départ d'un système pensé pour grandir avec toi.",
-    ctaDownload: "↓ Télécharger la dernière version",
-    ctaRepo: "Voir le dépôt",
-    eyebrowHow: "comment ça marche",
-    step1Title: "Installer",
-    step1Desc: "Perno démarre minimal : tu installes seulement les pièces dont tu as vraiment besoin, quand tu en as besoin.",
-    step2Title: "Personnaliser",
-    step2Desc: "Thèmes complets, une couleur d'accent séparée, des icônes pour chaque catégorie : tu ne l'utilises pas seulement, tu le façonnes.",
-    step3Title: "Grandir",
-    step3Desc: "De nouvelles pièces arrivent, et un jour aussi créées par d'autres utilisateurs : le système est pensé pour s'étendre, pas pour rester figé.",
-    eyebrowLang: "langues",
-    langDesc: "L'interface est disponible en cinq langues, sélectionnables à tout moment depuis les réglages.",
-    langHint: "↳ cette page se traduit aussi : choisis une langue ci-dessus.",
-    eyebrowStatus: "état du projet",
-    statusLabel: "dépôt",
-    statusDesc: "Perno est en développement actif : les pièces d'aujourd'hui sont la base, pas la limite. Ce dépôt distribue l'installateur et les versions, et c'est aussi le canal que le mécanisme de mise à jour automatique utilise pour les clients déjà installés.",
-    eyebrowPreview: "aperçu",
-    previewDesc: "Chaque pièce — Chronos, Finanze, Note et celles à venir — s'active ou se désactive à volonté, avec sa propre vue dédiée.",
-    slidePrevAria: "Image précédente",
-    slideNextAria: "Image suivante",
-    roomFinanzeDesc: "solde, entrées/sorties, paiements à venir",
-    roomChronosDesc: "agenda et activités du jour",
-    roomNoteDesc: "notes rapides épinglées",
-    eyebrowDownload: "télécharger",
-    platformNote: "installateur · .exe / .msi",
-    footerText: "Perno — hub personnel modulaire, local-first",
-    labels: ['Dashboard','Chronos','Finanze','Note','Pièces','Réglages — apparence','Réglages — catégories']
-  },
-  de: {
-    eyebrowHero: "Software · modularer persönlicher Hub",
-    lede: "Perno ist keine App mit festen Funktionen: Es ist ein digitales Zuhause, dessen Räume du nach Belieben installierst und entfernst. Finanzen, Chronos und Notizen sind nur der Ausgangspunkt eines Systems, das mit dir wachsen soll.",
-    ctaDownload: "↓ Neueste Version herunterladen",
-    ctaRepo: "Repository ansehen",
-    eyebrowHow: "so funktioniert's",
-    step1Title: "Installieren",
-    step1Desc: "Perno startet minimal: Du installierst nur die Räume, die du wirklich brauchst, dann, wenn du sie brauchst.",
-    step2Title: "Personalisieren",
-    step2Desc: "Vollständige Themes, eine eigene Akzentfarbe, Icons für jede Kategorie: Du benutzt es nicht nur, du formst es.",
-    step3Title: "Wachsen",
-    step3Desc: "Neue Räume kommen, und mit der Zeit auch solche von anderen Nutzern erstellt: Das System ist auf Erweiterung ausgelegt, nicht auf Stillstand.",
-    eyebrowLang: "sprachen",
-    langDesc: "Die Oberfläche ist in fünf Sprachen verfügbar, die jederzeit in den Einstellungen gewählt werden können.",
-    langHint: "↳ auch diese Seite lässt sich übersetzen: wähle oben eine Sprache.",
-    eyebrowStatus: "projektstatus",
-    statusLabel: "repository",
-    statusDesc: "Perno wird aktiv weiterentwickelt: Die heutigen Räume sind die Grundlage, nicht die Grenze. Dieses Repository verteilt den Installer und die Versionen und ist zugleich der Kanal, über den der automatische Update-Mechanismus bereits installierte Clients versorgt.",
-    eyebrowPreview: "vorschau",
-    previewDesc: "Jeder Raum — Chronos, Finanze, Note und weitere, die noch kommen — lässt sich nach Belieben ein- oder ausschalten, jeweils mit eigener Ansicht.",
-    slidePrevAria: "Vorheriges Bild",
-    slideNextAria: "Nächstes Bild",
-    roomFinanzeDesc: "Saldo, Einnahmen/Ausgaben, anstehende Zahlungen",
-    roomChronosDesc: "Kalender und heutige Aktivitäten",
-    roomNoteDesc: "angeheftete Schnellnotizen",
-    eyebrowDownload: "herunterladen",
-    platformNote: "Installer · .exe / .msi",
-    footerText: "Perno — modularer persönlicher Hub, local-first",
-    labels: ['Dashboard','Chronos','Finanze','Note','Räume','Einstellungen — Darstellung','Einstellungen — Kategorien']
-  }
+it: {
+eyebrowHero: "software · hub personale modulare",
+lede: "Perno non è un'app con funzionalità fisse: è una casa digitale le cui stanze si installano e disinstallano a piacere. Finanze, Chronos e Note sono solo il punto di partenza di un sistema pensato per crescere con te.",
+ctaDownload: "↓ Scarica l'ultima release",
+ctaRepo: "Vedi il repository",
+eyebrowHow: "come funziona",
+step1Title: "Installa",
+step1Desc: "Perno parte minimale: installi solo le stanze che ti servono davvero, quando ti servono.",
+step2Title: "Personalizza",
+step2Desc: "Temi completi, colore d'accento e icone per ogni categoria: non lo usi soltanto, lo plasmi.",
+step3Title: "Cresci",
+step3Desc: "Nuove stanze in arrivo, e in futuro anche create da altri utenti: il sistema è pensato per espandersi, non per restare fisso.",
+eyebrowLang: "lingue",
+langDesc: "L'interfaccia è disponibile in cinque lingue, selezionabili in qualsiasi momento dalle impostazioni.",
+langHint: "↳ anche questa pagina si traduce: scegli una lingua qui sopra.",
+eyebrowStatus: "stato del progetto",
+statusLabel: "repository",
+statusDesc: "Perno è in sviluppo attivo: le stanze di oggi sono la base, non il limite. Questo repository distribuisce l'installer e le release, ed è anche il canale che il meccanismo di aggiornamento automatico usa per i client già installati.",
+eyebrowPreview: "anteprima",
+previewDesc: "Ogni stanza — Chronos, Finanze, Note e le altre in arrivo — si attiva o disattiva a piacere, con la sua vista dedicata.",
+slidePrevAria: "Immagine precedente",
+slideNextAria: "Immagine successiva",
+roomFinanzeDesc: "saldo, entrate/uscite, pagamenti in arrivo",
+roomChronosDesc: "agenda e attività del giorno",
+roomNoteDesc: "appunti fissati in evidenza",
+eyebrowDownload: "scarica",
+platformNote: "installer · .exe / .msi",
+footerText: "Perno — hub personale modulare, locale-first",
+labels: ['Dashboard','Chronos','Finanze','Note','Stanze','Impostazioni — aspetto','Impostazioni — categorie']
+},
+en: {
+eyebrowHero: "software · modular personal hub",
+lede: "Perno isn't an app with fixed features: it's a digital home whose rooms you install and remove as you like. Finanze, Chronos and Note are just the starting point of a system built to grow with you.",
+ctaDownload: "↓ Download the latest release",
+ctaRepo: "View the repository",
+eyebrowHow: "how it works",
+step1Title: "Install",
+step1Desc: "Perno starts minimal: you install only the rooms you actually need, when you need them.",
+step2Title: "Personalize",
+step2Desc: "Full themes, a separate accent color, icons for every category: you don't just use it, you shape it.",
+step3Title: "Grow",
+step3Desc: "New rooms are coming, and in time also ones built by other users: the system is meant to expand, not stay fixed.",
+eyebrowLang: "languages",
+langDesc: "The interface is available in five languages, selectable at any time from settings.",
+langHint: "↳ this page translates too: pick a language above.",
+eyebrowStatus: "project status",
+statusLabel: "repository",
+statusDesc: "Perno is under active development: today's rooms are the foundation, not the limit. This repository distributes the installer and releases, and is also the channel the auto-update mechanism uses for clients already installed.",
+eyebrowPreview: "preview",
+previewDesc: "Every room — Chronos, Finanze, Note and the ones still to come — can be switched on or off at will, each with its own dedicated view.",
+slidePrevAria: "Previous image",
+slideNextAria: "Next image",
+roomFinanzeDesc: "balance, income/expenses, upcoming payments",
+roomChronosDesc: "schedule and today's activities",
+roomNoteDesc: "pinned quick notes",
+eyebrowDownload: "download",
+platformNote: "installer · .exe / .msi",
+footerText: "Perno — modular personal hub, local-first",
+labels: ['Dashboard','Chronos','Finanze','Note','Rooms','Settings — appearance','Settings — categories']
+},
+es: {
+eyebrowHero: "software · hub personal modular",
+lede: "Perno no es una app con funciones fijas: es una casa digital cuyas salas instalas y desinstalas a tu gusto. Finanzas, Chronos y Notas son solo el punto de partida de un sistema pensado para crecer contigo.",
+ctaDownload: "↓ Descargar la última versión",
+ctaRepo: "Ver el repositorio",
+eyebrowHow: "cómo funciona",
+step1Title: "Instala",
+step1Desc: "Perno empieza minimalista: instalas solo las salas que de verdad necesitas, cuando las necesitas.",
+step2Title: "Personaliza",
+step2Desc: "Temas completos, un color de acento aparte, iconos para cada categoría: no solo lo usas, lo moldeas.",
+step3Title: "Crece",
+step3Desc: "Llegarán nuevas salas, y con el tiempo también creadas por otros usuarios: el sistema está pensado para expandirse, no para quedarse fijo.",
+eyebrowLang: "idiomas",
+langDesc: "La interfaz está disponible en cinco idiomas, seleccionables en cualquier momento desde los ajustes.",
+langHint: "↳ esta página también se traduce: elige un idioma arriba.",
+eyebrowStatus: "estado del proyecto",
+statusLabel: "repositorio",
+statusDesc: "Perno está en desarrollo activo: las salas de hoy son la base, no el límite. Este repositorio distribuye el instalador y las versiones, y es también el canal que usa el mecanismo de actualización automática para los clientes ya instalados.",
+eyebrowPreview: "vista previa",
+previewDesc: "Cada sala — Chronos, Finanze, Note y las que están por llegar — se activa o desactiva a voluntad, con su propia vista dedicada.",
+slidePrevAria: "Imagen anterior",
+slideNextAria: "Imagen siguiente",
+roomFinanzeDesc: "saldo, ingresos/gastos, próximos pagos",
+roomChronosDesc: "agenda y actividades del día",
+roomNoteDesc: "notas rápidas fijadas",
+eyebrowDownload: "descargar",
+platformNote: "instalador · .exe / .msi",
+footerText: "Perno — hub personal modular, local-first",
+labels: ['Dashboard','Chronos','Finanze','Note','Salas','Ajustes — apariencia','Ajustes — categorías']
+},
+fr: {
+eyebrowHero: "logiciel · hub personnel modulaire",
+lede: "Perno n'est pas une appli aux fonctionnalités figées : c'est une maison numérique dont les pièces s'installent et se désinstallent à volonté. Finanze, Chronos et Note ne sont que le point de départ d'un système pensé pour grandir avec toi.",
+ctaDownload: "↓ Télécharger la dernière version",
+ctaRepo: "Voir le dépôt",
+eyebrowHow: "comment ça marche",
+step1Title: "Installer",
+step1Desc: "Perno démarre minimal : tu installes seulement les pièces dont tu as vraiment besoin, quand tu en as besoin.",
+step2Title: "Personnaliser",
+step2Desc: "Thèmes complets, une couleur d'accent séparée, des icônes pour chaque catégorie : tu ne l'utilises pas seulement, tu le façonnes.",
+step3Title: "Grandir",
+step3Desc: "De nouvelles pièces arrivent, et un jour aussi créées par d'autres utilisateurs : le système est pensé pour s'étendre, pas pour rester figé.",
+eyebrowLang: "langues",
+langDesc: "L'interface est disponible en cinq langues, sélectionnables à tout moment depuis les réglages.",
+langHint: "↳ cette page se traduit aussi : choisis une langue ci-dessus.",
+eyebrowStatus: "état du projet",
+statusLabel: "dépôt",
+statusDesc: "Perno est en développement actif : les pièces d'aujourd'hui sont la base, pas la limite. Ce dépôt distribue l'installateur et les versions, et c'est aussi le canal que le mécanisme de mise à jour automatique utilise pour les clients déjà installés.",
+eyebrowPreview: "aperçu",
+previewDesc: "Chaque pièce — Chronos, Finanze, Note et celles à venir — s'active ou se désactive à volonté, avec sa propre vue dédiée.",
+slidePrevAria: "Image précédente",
+slideNextAria: "Image suivante",
+roomFinanzeDesc: "solde, entrées/sorties, paiements à venir",
+roomChronosDesc: "agenda et activités du jour",
+roomNoteDesc: "notes rapides épinglées",
+eyebrowDownload: "télécharger",
+platformNote: "installateur · .exe / .msi",
+footerText: "Perno — hub personnel modulaire, local-first",
+labels: ['Dashboard','Chronos','Finanze','Note','Pièces','Réglages — apparence','Réglages — catégories']
+},
+de: {
+eyebrowHero: "Software · modularer persönlicher Hub",
+lede: "Perno ist keine App mit festen Funktionen: Es ist ein digitales Zuhause, dessen Räume du nach Belieben installierst und entfernst. Finanzen, Chronos und Notizen sind nur der Ausgangspunkt eines Systems, das mit dir wachsen soll.",
+ctaDownload: "↓ Neueste Version herunterladen",
+ctaRepo: "Repository ansehen",
+eyebrowHow: "so funktioniert's",
+step1Title: "Installieren",
+step1Desc: "Perno startet minimal: Du installierst nur die Räume, die du wirklich brauchst, dann, wenn du sie brauchst.",
+step2Title: "Personalisieren",
+step2Desc: "Vollständige Themes, eine eigene Akzentfarbe, Icons für jede Kategorie: Du benutzt es nicht nur, du formst es.",
+step3Title: "Wachsen",
+step3Desc: "Neue Räume kommen, und mit der Zeit auch solche von anderen Nutzern erstellt: Das System ist auf Erweiterung ausgelegt, nicht auf Stillstand.",
+eyebrowLang: "sprachen",
+langDesc: "Die Oberfläche ist in fünf Sprachen verfügbar, die jederzeit in den Einstellungen gewählt werden können.",
+langHint: "↳ auch diese Seite lässt sich übersetzen: wähle oben eine Sprache.",
+eyebrowStatus: "projektstatus",
+statusLabel: "repository",
+statusDesc: "Perno wird aktiv weiterentwickelt: Die heutigen Räume sind die Grundlage, nicht die Grenze. Dieses Repository verteilt den Installer und die Versionen und ist zugleich der Kanal, über den der automatische Update-Mechanismus bereits installierte Clients versorgt.",
+eyebrowPreview: "vorschau",
+previewDesc: "Jeder Raum — Chronos, Finanze, Note und weitere, die noch kommen — lässt sich nach Belieben ein- oder ausschalten, jeweils mit eigener Ansicht.",
+slidePrevAria: "Vorheriges Bild",
+slideNextAria: "Nächstes Bild",
+roomFinanzeDesc: "Saldo, Einnahmen/Ausgaben, anstehende Zahlungen",
+roomChronosDesc: "Kalender und heutige Aktivitäten",
+roomNoteDesc: "angeheftete Schnellnotizen",
+eyebrowDownload: "herunterladen",
+platformNote: "Installer · .exe / .msi",
+footerText: "Perno — modularer persönlicher Hub, local-first",
+labels: ['Dashboard','Chronos','Finanze','Note','Räume','Einstellungen — Darstellung','Einstellungen — Kategorien']
+}
 };
 
 var currentLang = 'it';
 
 function applyLang(lang){
-  var dict = I18N[lang] || I18N.it;
-  currentLang = lang;
-  document.documentElement.setAttribute('lang', lang);
+var dict = I18N[lang] || I18N.it;
+currentLang = lang;
+document.documentElement.setAttribute('lang', lang);
 
-  document.querySelectorAll('[data-i18n]').forEach(function(el){
-    var key = el.getAttribute('data-i18n');
-    if(dict[key] !== undefined) el.textContent = dict[key];
-  });
-  document.querySelectorAll('[data-i18n-aria]').forEach(function(el){
-    var key = el.getAttribute('data-i18n-aria');
-    if(dict[key] !== undefined) el.setAttribute('aria-label', dict[key]);
-  });
+document.querySelectorAll('[data-i18n]').forEach(function(el){
+var key = el.getAttribute('data-i18n');
+if(dict[key] !== undefined) el.textContent = dict[key];
+});
+document.querySelectorAll('[data-i18n-aria]').forEach(function(el){
+var key = el.getAttribute('data-i18n-aria');
+if(dict[key] !== undefined) el.setAttribute('aria-label', dict[key]);
+});
 
-  document.querySelectorAll('#lang-switcher .lang-chip').forEach(function(btn){
-    btn.setAttribute('aria-pressed', btn.getAttribute('data-lang') === lang ? 'true' : 'false');
-  });
+document.querySelectorAll('#lang-switcher .lang-chip').forEach(function(btn){
+btn.setAttribute('aria-pressed', btn.getAttribute('data-lang') === lang ? 'true' : 'false');
+});
 
-  if(window.__pernoSlider) window.__pernoSlider.setLabels(dict.labels);
+if(window.__pernoSlider) window.__pernoSlider.setLabels(dict.labels);
 
-  try{ localStorage.setItem('perno-lang', lang); }catch(e){}
+try{ localStorage.setItem('perno-lang', lang); }catch(e){}
 }
 
 (function(){
-  var switcher = document.getElementById('lang-switcher');
-  switcher.querySelectorAll('.lang-chip').forEach(function(btn){
-    btn.addEventListener('click', function(){ applyLang(btn.getAttribute('data-lang')); });
-  });
+var switcher = document.getElementById('lang-switcher');
+switcher.querySelectorAll('.lang-chip').forEach(function(btn){
+btn.addEventListener('click', function(){ applyLang(btn.getAttribute('data-lang')); });
+});
 
-  var initial = 'it';
-  try{
-    var saved = localStorage.getItem('perno-lang');
-    if(saved && I18N[saved]) initial = saved;
-    else{
-      var nav = (navigator.language || 'it').slice(0,2).toLowerCase();
-      if(I18N[nav]) initial = nav;
-    }
-  }catch(e){}
-  applyLang(initial);
+var initial = 'it';
+try{
+var saved = localStorage.getItem('perno-lang');
+if(saved && I18N[saved]) initial = saved;
+else{
+var nav = (navigator.language || 'it').slice(0,2).toLowerCase();
+if(I18N[nav]) initial = nav;
+}
+}catch(e){}
+applyLang(initial);
 })();
 
 /* ---------- slider (manual + auto) ---------- */
 (function(){
-  var track = document.getElementById('slider-track');
-  var dotsWrap = document.getElementById('slider-dots');
-  var caption = document.getElementById('slide-caption');
-  var prevBtn = document.getElementById('slider-prev');
-  var nextBtn = document.getElementById('slider-next');
-  var labels = I18N.it.labels.slice();
-  var slides = track.children;
-  var count = slides.length;
-  var current = 0;
-  var AUTO_DELAY = 5000;
-  var timer = null;
+var track = document.getElementById('slider-track');
+var dotsWrap = document.getElementById('slider-dots');
+var caption = document.getElementById('slide-caption');
+var prevBtn = document.getElementById('slider-prev');
+var nextBtn = document.getElementById('slider-next');
+var labels = I18N.it.labels.slice();
+var slides = track.children;
+var count = slides.length;
+var current = 0;
+var AUTO_DELAY = 5000;
+var timer = null;
 
-  for(var i=0;i<count;i++){
-    var b = document.createElement('button');
-    b.setAttribute('aria-label','Slide '+(i+1));
-    if(i===0) b.setAttribute('aria-current','true');
-    (function(idx){ b.addEventListener('click', function(){ goTo(idx); restartAuto(); }); })(i);
-    dotsWrap.appendChild(b);
-  }
-  var dots = dotsWrap.children;
+for(var i=0;i<count;i++){
+var b = document.createElement('button');
+b.setAttribute('aria-label','Slide '+(i+1));
+if(i===0) b.setAttribute('aria-current','true');
+(function(idx){ b.addEventListener('click', function(){ goTo(idx); restartAuto(); }); })(i);
+dotsWrap.appendChild(b);
+}
+var dots = dotsWrap.children;
 
-  function update(){
-    var w = track.clientWidth;
-    track.scrollTo({left: current * w, behavior: 'smooth'});
-    for(var i=0;i<dots.length;i++){
-      if(i===current) dots[i].setAttribute('aria-current','true');
-      else dots[i].removeAttribute('aria-current');
-    }
-    caption.textContent = labels[current] || '';
-  }
-  function goTo(idx){
-    current = (idx + count) % count;
-    update();
-  }
-  function startAuto(){
-    stopAuto();
-    timer = setInterval(function(){ goTo(current + 1); }, AUTO_DELAY);
-  }
-  function stopAuto(){
-    if(timer){ clearInterval(timer); timer = null; }
-  }
-  function restartAuto(){
-    startAuto();
-  }
+function update(){
+var w = track.clientWidth;
+track.scrollTo({left: current * w, behavior: 'smooth'});
+for(var i=0;i<dots.length;i++){
+if(i===current) dots[i].setAttribute('aria-current','true');
+else dots[i].removeAttribute('aria-current');
+}
+caption.textContent = labels[current] || '';
+}
+function goTo(idx){
+current = (idx + count) % count;
+update();
+}
+function startAuto(){
+stopAuto();
+timer = setInterval(function(){ goTo(current + 1); }, AUTO_DELAY);
+}
+function stopAuto(){
+if(timer){ clearInterval(timer); timer = null; }
+}
+function restartAuto(){
+startAuto();
+}
 
-  prevBtn.addEventListener('click', function(){ goTo(current - 1); restartAuto(); });
-  nextBtn.addEventListener('click', function(){ goTo(current + 1); restartAuto(); });
+prevBtn.addEventListener('click', function(){ goTo(current - 1); restartAuto(); });
+nextBtn.addEventListener('click', function(){ goTo(current + 1); restartAuto(); });
 
-  var scrollTimeout;
-  track.addEventListener('scroll', function(){
-    clearTimeout(scrollTimeout);
-    scrollTimeout = setTimeout(function(){
-      var w = track.clientWidth;
-      if(w>0){
-        var idx = Math.round(track.scrollLeft / w);
-        if(idx !== current && idx >=0 && idx < count){
-          current = idx;
-          for(var i=0;i<dots.length;i++){
-            if(i===current) dots[i].setAttribute('aria-current','true');
-            else dots[i].removeAttribute('aria-current');
-          }
-          caption.textContent = labels[current] || '';
-        }
-      }
-    }, 120);
-  });
+var scrollTimeout;
+track.addEventListener('scroll', function(){
+clearTimeout(scrollTimeout);
+scrollTimeout = setTimeout(function(){
+var w = track.clientWidth;
+if(w>0){
+var idx = Math.round(track.scrollLeft / w);
+if(idx !== current && idx >=0 && idx < count){
+current = idx;
+for(var i=0;i<dots.length;i++){
+if(i===current) dots[i].setAttribute('aria-current','true');
+else dots[i].removeAttribute('aria-current');
+}
+caption.textContent = labels[current] || '';
+}
+}
+}, 120);
+});
 
-  var frame = track.closest('.frame');
-  frame.addEventListener('mouseenter', stopAuto);
-  frame.addEventListener('mouseleave', startAuto);
-  frame.addEventListener('touchstart', stopAuto, {passive:true});
-  frame.addEventListener('touchend', function(){ setTimeout(startAuto, AUTO_DELAY); }, {passive:true});
-  document.addEventListener('visibilitychange', function(){
-    if(document.hidden) stopAuto(); else startAuto();
-  });
+var frame = track.closest('.frame');
+frame.addEventListener('mouseenter', stopAuto);
+frame.addEventListener('mouseleave', startAuto);
+frame.addEventListener('touchstart', stopAuto, {passive:true});
+frame.addEventListener('touchend', function(){ setTimeout(startAuto, AUTO_DELAY); }, {passive:true});
+document.addEventListener('visibilitychange', function(){
+if(document.hidden) stopAuto(); else startAuto();
+});
 
-  window.addEventListener('resize', function(){ update(); });
+window.addEventListener('resize', function(){ update(); });
 
-  window.__pernoSlider = {
-    setLabels: function(newLabels){
-      labels = newLabels.slice();
-      caption.textContent = labels[current] || '';
-    }
-  };
-  window.__pernoSlider.setLabels((I18N[currentLang] || I18N.it).labels);
+window.__pernoSlider = {
+setLabels: function(newLabels){
+labels = newLabels.slice();
+caption.textContent = labels[current] || '';
+}
+};
+window.__pernoSlider.setLabels((I18N[currentLang] || I18N.it).labels);
 
-  startAuto();
+startAuto();
 })();
 </script>
 </body>
